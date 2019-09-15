@@ -48,6 +48,17 @@ class BookController {
             _error(error.message, error);
         }
     }
+
+    async listBook(req, res, next) {
+        try {
+            let data = await bookService.listBook();
+
+            res.send(data);
+        } catch (error) {
+            console.log('error', error)
+            _error(error.message, error);
+        }
+    }
 }
 
 module.exports = new BookController();

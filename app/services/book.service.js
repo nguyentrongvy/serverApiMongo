@@ -20,6 +20,11 @@ class BookService {
             //     });
             // });
     }
+
+    listBook() {
+        let result = Book.find();
+        return result;
+    }
 }
 
 module.exports = new BookService();
