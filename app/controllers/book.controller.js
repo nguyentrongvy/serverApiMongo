@@ -51,7 +51,8 @@ class BookController {
 
     async listBook(req, res, next) {
         try {
-            let data = await bookService.listBook();
+            let query = req.query.search;
+            let data = await bookService.listBook(query);
 
             res.send(data);
         } catch (error) {

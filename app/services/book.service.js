@@ -21,8 +21,18 @@ class BookService {
             // });
     }
 
-    listBook() {
-        let result = Book.find();
+    listBook(title) {
+        console.log('here', title)
+
+        if (title == undefined) {
+            title = ""
+        }
+
+        let query = { 
+            title:  new RegExp(title, "i"),
+        };
+        let result = Book.find(query);
+
         return result;
     }
 }
